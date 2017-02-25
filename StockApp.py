@@ -13,9 +13,7 @@ while True:
         
         url = url + stock.upper()
         
-        data = request.urlopen(url).read()
-        
-        data = data.decode("utf-8")
+        data = request.urlopen(url).read().decode("utf-8")
         
         m = re.search('<meta itemprop="price"', data)
         
@@ -38,7 +36,10 @@ while True:
         price = data2[:f.end()-3]
                       
         print("The Stock Price for " + stock.upper() + " is $" + str(price))
+        
     
     except:
         
         print("Stock Not Found")
+        
+        break
